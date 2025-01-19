@@ -1,0 +1,380 @@
+@charset "UTF-8";
+/*共通項目*/
+html {
+  margin: 0;
+  font-family: "ヒラギノ角ゴ ProN W2", "Hiragino Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 10px;
+  scroll-behavior: smooth;
+}
+
+p, h1, h2, h3, h4, a {
+  margin: 0;
+  color: #505050;
+  font-weight: 200;
+}
+
+picture {
+  width: 100%;
+}
+
+/*==================
+  mixin
+==================*/
+.inner {
+  max-width: 94rem;
+  width: 100%;
+  padding-inline: 3rem;
+  margin: 0 auto;
+}
+
+/* ------------
+header
+-------------- */
+header {
+  width: 100%;
+  line-height: 1;
+}
+
+.header__inner {
+  max-width: 108rem;
+  width: 100%;
+  padding-inline: 5rem;
+  margin: 0 auto;
+}
+
+.header__container {
+  height: 12rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__nav {
+  padding-bottom: 0.8rem;
+  height: inherit;
+  display: flex;
+  align-items: center;
+}
+
+.header__nav ul {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.header__nav ul li {
+  list-style-type: none;
+  padding-inline: 1.7rem;
+}
+
+.header__nav ul li a {
+  position: relative;
+  transition: opacity 0.4s ease; /* 個別指定 */
+}
+
+.header__nav ul li a p {
+  font-family: "Reggae One", serif;
+  font-size: 3rem;
+  line-height: 1;
+  color: #B87B30;
+  text-shadow: -2px 2px 0 rgb(97, 76, 76); /* 左下に影 */
+  position: relative;
+}
+
+.nav-item-menu {
+  padding: 2.6rem 0 0.4em 2rem;
+  display: flex;
+  align-items: baseline;
+}
+
+.nav-item-about {
+  padding: 1rem 0 2.2rem 2rem;
+  display: flex;
+  align-items: baseline;
+}
+
+.header__nav ul li a:hover {
+  opacity: 0.5;
+}
+
+@media only screen and (min-width: 768px) {
+  .header__nav ul li a p::before {
+    content: ""; /* 疑似要素を有効にする */
+    width: 2.5rem; /* 画像の幅 */
+    height: 2.5rem; /* 画像の高さ */
+    background-image: url("../images/fv豆1.png"); /* 画像のURL */
+    background-size: cover; /* 画像全体を表示 */
+    background-position: center; /* 中央寄せ */
+  }
+}
+
+.nav-item-menu::before {
+  position: absolute;
+  left: -1.5rem; /* テキストから1rem左に画像を表示（画像幅に合わせ調整可能） */
+  top: 53%;
+  transform: translateY(-11%) rotate(40deg); /* 初期状態は回転なし */
+}
+
+.nav-item-about::before {
+  position: absolute;
+  left: -1.5rem; /* テキストから1rem左に画像を表示（画像幅に合わせ調整可能） */
+  top: 53%;
+  transform: translateY(-63%) rotate(40deg); /* 初期状態は回転なし */
+}
+
+/*==================
+ main
+==================*/
+.main {
+  width: 100%;
+}
+
+.main__box {
+  height: 70rem;
+  background: radial-gradient(circle, #FFFFF0 40%, #FFD700 60%, #FFA500 70%);
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.main__copy {
+  position: absolute;
+  top: 50%; /* 親要素の50%の位置に配置 */
+  left: 50%; /* 親要素の50%の位置に配置 */
+  transform: translate(-44%, -54%); /* 中央に配置するための調整 */
+  color: #fff;
+  font-family: "Reggae One", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 5rem;
+  line-height: 1.2;
+}
+
+.u-big {
+  font-size: 10rem;
+  line-height: 1;
+  padding-left: 5.5rem;
+}
+
+.main__fv {
+  width: 37rem;
+  margin: 0 auto;
+}
+
+.main__box img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+/*==================
+ 回転の実験
+==================*/
+.main__circle-wrap {
+  position: relative;
+  position: absolute;
+  top: 0; /* 親要素の50%の位置に配置 */
+  left: 0; /* 親要素の50%の位置に配置 */
+  transform: translate(0%, 21%);
+  width: 100%;
+  height: 500px;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  --radius: 260px; /* 円の半径 */
+}
+
+.main__circle-wrap .main__circle {
+  width: calc(2 * var(--radius));
+  height: calc(2 * var(--radius));
+  border-radius: 50%; /* 完全な円 */
+  position: relative;
+}
+
+.main__circle-wrap .main__circle div {
+  width: 12rem;
+  height: 15rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(0deg) translate(var(--radius)) rotate(0deg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: moveAroundCircle 16s infinite linear; /* アニメーションの速度を8秒に設定 */
+}
+
+/* 1つ目の画像 */
+.main__circle-wrap .main__circle div:nth-child(1) {
+  background-image: url("../images/fv抗火石-AI-350.png");
+  animation-delay: 0s;
+}
+
+/* 2つ目の画像 */
+.main__circle-wrap .main__circle div:nth-child(2) {
+  background-image: url("../images/bean01.png");
+  animation-delay: 2s; /* 16秒 ÷ 8 = 2秒間隔 */
+}
+
+/* 3つ目の画像 */
+.main__circle-wrap .main__circle div:nth-child(3) {
+  background-image: url("../images/fv鎌倉石-AI-300-03.png");
+  animation-delay: 4s;
+}
+
+/* 4つ目の画像 */
+.main__circle-wrap .main__circle div:nth-child(4) {
+  background-image: url("../images/マグカップ.png");
+  animation-delay: 6s;
+}
+
+/* 5つ目の画像 */
+.main__circle-wrap .main__circle div:nth-child(5) {
+  background-image: url("../images/fv秩父片岩-AI-300.png");
+  animation-delay: 8s;
+}
+
+/* 6つ目の画像 */
+.main__circle-wrap .main__circle div:nth-child(6) {
+  background-image: url("../images/bean03.png");
+  animation-delay: 10s;
+}
+
+/* 7つ目の画像 */
+.main__circle-wrap .main__circle div:nth-child(7) {
+  background-image: url("../images/fv鎌倉石-AI-300.png");
+  animation-delay: 12s;
+}
+
+/* 8つ目の画像 */
+.main__circle-wrap .main__circle div:nth-child(8) {
+  background-image: url("../images/bean04.png");
+  animation-delay: 14s;
+}
+
+/* 円形の軌道を描くアニメーション */
+@keyframes moveAroundCircle {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) translate(var(--radius)) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg) translate(var(--radius)) rotate(-360deg);
+  }
+}
+.main-circle__stone {
+  position: relative;
+  font-family: "Reggae One", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.main-circle__stone::before {
+  position: absolute;
+  bottom: 0%;
+  left: 0%;
+  transform: translate(10%, -122%);
+  font-size: 3rem;
+  color: #ffffff;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+/* 1つ目のスタイル */
+.main-circle__stone:nth-child(1)::before {
+  content: "抗火石";
+}
+
+/* 2つ目のスタイル */
+.main-circle__stone:nth-child(3)::before {
+  content: "鎌倉石";
+}
+
+/* 3つ目のスタイル */
+.main-circle__stone:nth-child(5)::before {
+  content: "秩父石";
+}
+
+/* 4つ目のスタイル */
+.main-circle__stone:nth-child(7)::before {
+  content: "南総石";
+}
+
+/*==================
+ menu
+==================*/
+.menu {
+  padding-block: 8rem;
+}
+
+.sec-title {
+  font-family: "Reggae One", serif;
+  font-size: 4rem;
+  line-height: 1;
+  color: #B87B30;
+  text-shadow: -2px 2px 0 rgb(97, 76, 76); /* 左下に影 */
+  text-align: center;
+}
+
+.menu__lists {
+  padding-top: 8rem;
+  display: flex;
+  -moz-column-gap: 3.5rem;
+       column-gap: 3.5rem;
+}
+
+.menu-list {
+  width: 27rem;
+  background-color: aqua;
+  display: block;
+}
+
+.menu-list__img img {
+  width: 100%;
+}
+
+.menu-list__text {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+}
+
+.menu-list__title {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.menu-list__memo {
+  font-size: 2rem;
+  line-height: 1;
+  background-color: yellow;
+}
+
+/*==================
+ about
+==================*/
+.about {
+  padding-block: 5rem;
+}
+
+.about__container {
+  display: flex;
+  -moz-column-gap: 5rem;
+       column-gap: 5rem;
+}
+
+.about__img {
+  width: 40rem;
+}
+
+#videoPlayer {
+  width: 40rem;
+}
+
+.about__text {
+  width: 40rem;
+  font-size: 2rem;
+  line-height: 1.5;
+}
