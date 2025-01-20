@@ -7,6 +7,12 @@ html {
  font-weight: 400;
  font-style: normal;
  font-size: 10px;
+ @media (min-width: 768px) and (max-width: 940px) {
+  font-size: vw(10,940);
+  // 768pxから940px間でリキッドレイアウト
+  // vw(10,940);は、width:940のときに、font-size:10pxの比率ってこと。
+  // 画面幅（width）に応じて、その比率が維持される。
+ }
  scroll-behavior: smooth;
 }
 
@@ -19,6 +25,8 @@ p, h1, h2, h3, h4, a {
 picture {
  width: 100%;
 }
+
+
 
 /*==================
   mixin

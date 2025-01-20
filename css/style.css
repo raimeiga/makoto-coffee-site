@@ -8,6 +8,11 @@ html {
   font-size: 10px;
   scroll-behavior: smooth;
 }
+@media (min-width: 768px) and (max-width: 940px) {
+  html {
+    font-size: vw(10, 940);
+  }
+}
 
 p, h1, h2, h3, h4, a {
   margin: 0;
