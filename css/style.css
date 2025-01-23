@@ -51,22 +51,39 @@ header {
 
 .header__container {
   height: 12rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .header__nav {
   padding-bottom: 0.8rem;
   height: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .header__nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .header__nav ul li {
@@ -76,6 +93,7 @@ header {
 
 .header__nav ul li a {
   position: relative;
+  -webkit-transition: opacity 0.4s ease;
   transition: opacity 0.4s ease; /* 個別指定 */
 }
 
@@ -90,14 +108,22 @@ header {
 
 .nav-item-menu {
   padding: 2.6rem 0 0.4em 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: baseline;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
 }
 
 .nav-item-about {
   padding: 1rem 0 2.2rem 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: baseline;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
 }
 
 .header__nav ul li a:hover {
@@ -119,14 +145,16 @@ header {
   position: absolute;
   left: -1.5rem; /* テキストから1rem左に画像を表示（画像幅に合わせ調整可能） */
   top: 53%;
-  transform: translateY(-11%) rotate(40deg); /* 初期状態は回転なし */
+  -webkit-transform: translateY(-11%) rotate(40deg);
+          transform: translateY(-11%) rotate(40deg); /* 初期状態は回転なし */
 }
 
 .nav-item-about::before {
   position: absolute;
   left: -1.5rem; /* テキストから1rem左に画像を表示（画像幅に合わせ調整可能） */
   top: 53%;
-  transform: translateY(-63%) rotate(40deg); /* 初期状態は回転なし */
+  -webkit-transform: translateY(-63%) rotate(40deg);
+          transform: translateY(-63%) rotate(40deg); /* 初期状態は回転なし */
 }
 
 /*==================
@@ -137,10 +165,14 @@ header {
 }
 
 .main__box {
-  height: 70rem;
+  height: 68rem;
   background: radial-gradient(circle, #FFFFF0 40%, #FFD700 60%, #FFA500 70%);
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   position: relative;
 }
 
@@ -148,7 +180,8 @@ header {
   position: absolute;
   top: 50%; /* 親要素の50%の位置に配置 */
   left: 50%; /* 親要素の50%の位置に配置 */
-  transform: translate(-44%, -54%); /* 中央に配置するための調整 */
+  -webkit-transform: translate(-44%, -54%);
+          transform: translate(-44%, -54%); /* 中央に配置するための調整 */
   color: #fff;
   font-family: "Reggae One", serif;
   font-weight: 400;
@@ -164,7 +197,7 @@ header {
 }
 
 .main__fv {
-  width: 37rem;
+  width: 35rem;
   margin: 0 auto;
 }
 
@@ -182,13 +215,17 @@ header {
   position: absolute;
   top: 0; /* 親要素の50%の位置に配置 */
   left: 0; /* 親要素の50%の位置に配置 */
-  transform: translate(0%, 21%);
+  -webkit-transform: translate(0%, 18%);
+          transform: translate(0%, 18%);
   width: 100%;
   height: 500px;
   display: grid;
-  align-content: center;
-  justify-content: center;
-  --radius: 260px; /* 円の半径 */
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  --radius: 250px; /* 円の半径 */
 }
 
 .main__circle-wrap .main__circle {
@@ -199,73 +236,95 @@ header {
 }
 
 .main__circle-wrap .main__circle div {
-  width: 12rem;
+  width: 11rem;
   height: 15rem;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) rotate(0deg) translate(var(--radius)) rotate(0deg);
+  -webkit-transform: translate(-50%, -50%) rotate(0deg) translate(var(--radius)) rotate(0deg);
+          transform: translate(-50%, -50%) rotate(0deg) translate(var(--radius)) rotate(0deg);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  animation: moveAroundCircle 16s infinite linear; /* アニメーションの速度を8秒に設定 */
+  -webkit-animation: moveAroundCircle 16s infinite linear;
+          animation: moveAroundCircle 16s infinite linear; /* アニメーションの速度を8秒に設定 */
 }
 
 /* 1つ目の画像 */
 .main__circle-wrap .main__circle div:nth-child(1) {
   background-image: url("../images/fv抗火石-AI-350.png");
-  animation-delay: 0s;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
 }
 
 /* 2つ目の画像 */
 .main__circle-wrap .main__circle div:nth-child(2) {
-  background-image: url("../images/bean01.png");
-  animation-delay: 2s; /* 16秒 ÷ 8 = 2秒間隔 */
+  background-image: url("../images/コーヒーチェリー4つ.png");
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s; /* 16秒 ÷ 8 = 2秒間隔 */
 }
 
 /* 3つ目の画像 */
 .main__circle-wrap .main__circle div:nth-child(3) {
   background-image: url("../images/fv鎌倉石-AI-300-03.png");
-  animation-delay: 4s;
+  -webkit-animation-delay: 4s;
+          animation-delay: 4s;
 }
 
 /* 4つ目の画像 */
 .main__circle-wrap .main__circle div:nth-child(4) {
-  background-image: url("../images/マグカップ.png");
-  animation-delay: 6s;
+  background-image: url("../images/コーヒーチェリー中身2つ.png");
+  -webkit-animation-delay: 6s;
+          animation-delay: 6s;
 }
 
 /* 5つ目の画像 */
 .main__circle-wrap .main__circle div:nth-child(5) {
   background-image: url("../images/fv秩父片岩-AI-300.png");
-  animation-delay: 8s;
+  -webkit-animation-delay: 8s;
+          animation-delay: 8s;
 }
 
 /* 6つ目の画像 */
 .main__circle-wrap .main__circle div:nth-child(6) {
-  background-image: url("../images/bean03.png");
-  animation-delay: 10s;
+  background-image: url("../images/豆2つ.png");
+  -webkit-animation-delay: 10s;
+          animation-delay: 10s;
 }
 
 /* 7つ目の画像 */
 .main__circle-wrap .main__circle div:nth-child(7) {
   background-image: url("../images/fv鎌倉石-AI-300.png");
-  animation-delay: 12s;
+  -webkit-animation-delay: 12s;
+          animation-delay: 12s;
 }
 
 /* 8つ目の画像 */
 .main__circle-wrap .main__circle div:nth-child(8) {
-  background-image: url("../images/bean04.png");
-  animation-delay: 14s;
+  background-image: url("../images/マグカップ.png");
+  -webkit-animation-delay: 14s;
+          animation-delay: 14s;
 }
 
 /* 円形の軌道を描くアニメーション */
-@keyframes moveAroundCircle {
+@-webkit-keyframes moveAroundCircle {
   0% {
-    transform: translate(-50%, -50%) rotate(0deg) translate(var(--radius)) rotate(0deg);
+    -webkit-transform: translate(-50%, -50%) rotate(0deg) translate(var(--radius)) rotate(0deg);
+            transform: translate(-50%, -50%) rotate(0deg) translate(var(--radius)) rotate(0deg);
   }
   100% {
-    transform: translate(-50%, -50%) rotate(360deg) translate(var(--radius)) rotate(-360deg);
+    -webkit-transform: translate(-50%, -50%) rotate(360deg) translate(var(--radius)) rotate(-360deg);
+            transform: translate(-50%, -50%) rotate(360deg) translate(var(--radius)) rotate(-360deg);
+  }
+}
+@keyframes moveAroundCircle {
+  0% {
+    -webkit-transform: translate(-50%, -50%) rotate(0deg) translate(var(--radius)) rotate(0deg);
+            transform: translate(-50%, -50%) rotate(0deg) translate(var(--radius)) rotate(0deg);
+  }
+  100% {
+    -webkit-transform: translate(-50%, -50%) rotate(360deg) translate(var(--radius)) rotate(-360deg);
+            transform: translate(-50%, -50%) rotate(360deg) translate(var(--radius)) rotate(-360deg);
   }
 }
 .main-circle__stone {
@@ -279,7 +338,8 @@ header {
   position: absolute;
   bottom: 0%;
   left: 0%;
-  transform: translate(10%, -122%);
+  -webkit-transform: translate(5%, -126%);
+          transform: translate(5%, -126%);
   font-size: 3rem;
   color: #ffffff;
   padding: 0.5rem;
@@ -324,9 +384,12 @@ header {
 
 .menu__lists {
   padding-top: 8rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  -moz-column-gap: 3.5rem;
-       column-gap: 3.5rem;
+  -webkit-column-gap: 3.5rem;
+     -moz-column-gap: 3.5rem;
+          column-gap: 3.5rem;
 }
 
 .menu-list {
@@ -341,8 +404,13 @@ header {
 
 .menu-list__text {
   padding: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   row-gap: 1rem;
 }
 
@@ -365,9 +433,12 @@ header {
 }
 
 .about__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  -moz-column-gap: 5rem;
-       column-gap: 5rem;
+  -webkit-column-gap: 5rem;
+     -moz-column-gap: 5rem;
+          column-gap: 5rem;
 }
 
 .about__img {
@@ -382,4 +453,4 @@ header {
   width: 40rem;
   font-size: 2rem;
   line-height: 1.5;
-}
+}/*# sourceMappingURL=style.css.map */
